@@ -2,11 +2,11 @@
 'use client';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Hero from '@/components/Hero';
-import WaitlistForm from '@/components/WaitlistForm';
-import ReferralSection from '@/components/ReferralSection';
-import Leaderboard from '@/components/Leaderboard';
-import SocialProof from '@/components/SocialProof';
+import Hero from '/components/Hero';
+import WaitlistForm from '/components/WaitlistForm';
+import ReferralSection from '/components/ReferralSection';
+import Leaderboard from '/components/Leaderboard';
+import SocialProof from '/components/SocialProof';
 
 function WaitlistContent() {
   const searchParams = useSearchParams();
