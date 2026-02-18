@@ -1,0 +1,427 @@
+/* styles/globals.css - MOBILE FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neon-purple: #B026FF;
+  --neon-pink: #FF06B7;
+  --neon-blue: #00D9FF;
+  --dark-bg: #0a0a0f;
+  --card-bg: #151520;
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4b4;
+}
+
+/* ========== BASE STYLES (Mobile First) ========== */
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Neon gradient background */
+.neon-bg {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.neon-bg::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(176, 38, 255, 0.15) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ========== TYPOGRAPHY (Mobile First) ========== */
+h1 {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 0.95rem; /* 15px */
+  line-height: 1.6;
+}
+
+/* Tablet & Desktop Typography */
+@media (min-width: 768px) {
+  h1 { font-size: 4rem; } /* 64px */
+  h2 { font-size: 2.5rem; } /* 40px */
+  h3 { font-size: 1.5rem; } /* 24px */
+  p { font-size: 1rem; } /* 16px */
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 5rem; } /* 80px */
+  h2 { font-size: 3rem; } /* 48px */
+}
+
+/* ========== NEON EFFECTS ========== */
+.neon-text {
+  text-shadow: 
+    0 0 5px var(--neon-purple),
+    0 0 10px var(--neon-purple),
+    0 0 20px var(--neon-purple);
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .neon-text {
+    text-shadow: 
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple),
+      0 0 30px var(--neon-purple),
+      0 0 40px var(--neon-purple);
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink), var(--neon-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ========== CARDS (Mobile First) ========== */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(176, 38, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    border-radius: 24px;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 2.5rem;
+  }
+}
+
+.card:hover {
+  border-color: var(--neon-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(176, 38, 255, 0.3);
+}
+
+/* ========== BUTTONS (Mobile First) ========== */
+.btn-neon {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  border: none;
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(176, 38, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .btn-neon {
+    width: auto;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-neon:hover::before {
+  left: 100%;
+}
+
+.btn-neon:active {
+  transform: scale(0.97);
+}
+
+@media (min-width: 768px) {
+  .btn-neon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(176, 38, 255, 0.6);
+  }
+}
+
+.btn-neon:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ========== INPUTS (Mobile First) ========== */
+.input-neon {
+  background: rgba(21, 21, 32, 0.8);
+  border: 2px solid rgba(176, 38, 255, 0.3);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (min-width: 768px) {
+  .input-neon {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.input-neon:focus {
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 20px rgba(176, 38, 255, 0.3);
+  background: rgba(21, 21, 32, 1);
+}
+
+.input-neon::placeholder {
+  color: var(--text-secondary);
+}
+
+/* ========== CONTAINER (Mobile First) ========== */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* ========== LOADING SPINNER ========== */
+.spinner {
+  border: 3px solid rgba(176, 38, 255, 0.2);
+  border-top: 3px solid var(--neon-purple);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .spinner {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-animation {
+  animation: countUp 0.5s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== GRID SYSTEM (Mobile First) ========== */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 1.5rem;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: 2rem;
+  }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-6 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-8 { padding-top: 3rem; padding-bottom: 3rem; }
+
+@media (min-width: 768px) {
+  .py-4 { padding-top: 2rem; padding-bottom: 2rem; }
+  .py-6 { padding-top: 3rem; padding-bottom: 3rem; }
+  .py-8 { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+.px-2 { padding-left: 1rem; padding-right: 1rem; }
+.px-4 { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+/* ========== RESPONSIVE VISIBILITY ========== */
+.mobile-only {
+  display: block;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* ========== TOUCH OPTIMIZATION ========== */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile touch targets */
+  button, a, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ========== PREVENT TEXT SELECTION ON TOUCH ========== */
+button, .btn-neon {
+  -webkit-user-select: none;
+  user-select: none;
+}
