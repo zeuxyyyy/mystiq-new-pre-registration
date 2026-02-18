@@ -1,6 +1,6 @@
 // app/api/spots/route.js
 import { NextResponse } from 'next/server';
-import { getRemainingSpots } from '@/lib/db';
+import { getRemainingSpots } from '/lib/db';
 
 export async function GET() {
   try {

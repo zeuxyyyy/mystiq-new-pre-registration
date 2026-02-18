@@ -1,6 +1,6 @@
 // app/api/waitlist/route.js
 import { NextResponse } from 'next/server';
-import { addToWaitlist, getUserStats, initDB } from '@/lib/db';
+import { addToWaitlist, getUserStats, initDB } from '/lib/db';
 
 // Initialize database on first request
 let dbInitialized = false;

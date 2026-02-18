@@ -1,6 +1,6 @@
 // app/api/leaderboard/route.js
 import { NextResponse } from 'next/server';
-import { getLeaderboard } from '@/lib/db';
+import { getLeaderboard } from '/lib/db';
 
 export async function GET() {
   try {
